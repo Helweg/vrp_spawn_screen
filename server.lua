@@ -63,10 +63,10 @@ Citizen.CreateThread(function()
         local user_id = vRP.getUserId({source})
         _G.player_source = source
         vRP.isSpawned(user_id, function(first_spawned)
-            _G.first_spawned = spawned
+            _G.first_spawned = first_spawned
         end)
         Citizen.Wait(1000)
-        if _G.spawned then
+        if _G.first_spawned then
             TriggerClientEvent("ToggleSpawnMenu", _G.player_source)
         elseif not _G.first_spawned then
             SetTimeout(20000,function()
