@@ -11,7 +11,7 @@ and the user will be spawned in as a random male or female ped model at the trai
 ## Known issues:
 - Don't use this resource while using vrp_loadfreeze. 
 (This resource has also the fonctionalities of vrp_loadfreeze incorporated.)
-- If you get "[vRP] task 6 failed." try outcommet ```MySQL.query("vRP/first_spawn_column")``` at line 30 in server.lua
+- If you get "[vRP] task #number failed." try outcommet ```MySQL.query("vRP/first_spawn_column")``` at line 30 in server.lua
 ## License
 
     vrp_spawn_screen
