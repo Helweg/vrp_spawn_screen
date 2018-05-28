@@ -55,7 +55,7 @@ Citizen.CreateThread(function()
               })
         MySQL.execute("vRP/update_first_spawn", {
                 id = user_id,
-                firstSpawn = 1
+                firstSpawn = 0
               })
     end)
     
