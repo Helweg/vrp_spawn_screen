@@ -9,9 +9,20 @@ and the user will be spawned in as a random male or female ped model at the trai
 ![alt screen2](https://i.gyazo.com/a6c5dd3b150d15f261e6b8ad7b1dfd6e.jpg "Screen2")
 
 ## Known issues:
-- Don't use this resource while using vrp_loadfreeze. 
-(This resource has also the fonctionalities of vrp_loadfreeze incorporated.)
-- If you get "[vRP] task #number failed." Try update your FXServer
+* Don't use this resource while using vrp_loadfreeze. 
+-(This resource has also the fonctionalities of vrp_loadfreeze incorporated.)
+
+***************************************************************************************************************************
+If you get SQL errors it should be because its made to work with databases that accept ADD IF NOT EXISTS.  
+To create the tables on your database follow the steps:  
+
+1. Remove every IF NOT EXISTS from server.lua  
+2. Run the server once.  
+3. Comment out the MySQL.query("vRP/first_spawn_column") adding -- before it  
+4. Restart the server one more time.  
+5. You're good to go from now on.  
+****************************************************************************************************************************
+
 ## License
 
     vrp_spawn_screen
