@@ -45,16 +45,13 @@ AddEventHandler('vrp_spawn_screen:updateinfo', function(data)
 end)
 
 AddEventHandler("vRP:playerSpawn", function(user_id, source, first_spawn)
-    local user = {}
-    user.player_source = source
-    user.id = vRP.getUserId(source)
-    user.first_spawned = (not vRP.getUData(user.id, "already_spawned"))
+    local first_spawn = (not vRP.getUData(user_id, "already_spawned"))
     SetTimeout(1000, function()
-        if user.first_spawned then
-            TriggerClientEvent("ToggleSpawnMenu", user.player_source)
-        elseif not user.first_spawned then
+        if first_spawn then
+            TriggerClientEvent("ToggleSpawnMenu", source)
+        elseif not first_spawn then
             SetTimeout(20000,function()
-                TriggerClientEvent("KillSpawnMenu", user.player_source)
+                TriggerClientEvent("KillSpawnMenu", source)
             end)
         end
     end)
