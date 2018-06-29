@@ -1,4 +1,4 @@
---[[ 
+--[[
 	vrp_spawn_screen
     Copyright (C) 2018  VHdk
 
@@ -21,15 +21,14 @@ ui_page "nui/ui.html"
 files {
 	"nui/ui.html",
     "nui/background.jpg",
-   	"nui/ui.js", 
+   	"nui/ui.js",
    	"nui/bootstrap.min.js",
    	"nui/bootstrap.min.css",
    	"nui/responsive.css",
 }
 
 client_script{
-			"lib/Proxy.lua",
-			"lib/Tunnel.lua",
+			"@vrp/lib/utils.lua",
 			"ui.lua",
 			"client.lua"
 		}
