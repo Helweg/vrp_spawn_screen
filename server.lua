@@ -31,7 +31,7 @@ end)
 RegisterServerEvent('vrp_spawn_screen:updateinfo')
 AddEventHandler('vrp_spawn_screen:updateinfo', function(data)
     local user_id = vRP.getUserId(source)
-    MySQL.execute("vRP/update_user_identity", {
+    vRP.execute("vRP/update_user_identity", {
         	user_id = user_id,
         	firstname = data.firstname,
         	name = data.lastname,
@@ -39,18 +39,18 @@ AddEventHandler('vrp_spawn_screen:updateinfo', function(data)
             registration = vRP.generateRegistrationNumber(),
             phone = vRP.generatePhoneNumber()
           })
-    vRP.setUData(user_id,"already_spawned",1)
+    vRP.setUData(user_id,"spawned_once",1)
 end)
 
 AddEventHandler("vRP:playerSpawn", function(user_id, source, first_spawn)
-    local first_spawn = (not vRP.getUData(user_id, "already_spawned"))
+    local spawned = (not (vRP.getUData(user_id, "spawned_once") == ""))
     SetTimeout(1000, function()
-        if first_spawn then
-            TriggerClientEvent("ToggleSpawnMenu", source)
-        elseif not first_spawn then
+        if spawned then
             SetTimeout(20000,function()
                 TriggerClientEvent("KillSpawnMenu", source)
             end)
+        else
+            TriggerClientEvent("ToggleSpawnMenu", source)
         end
     end)
 end)
