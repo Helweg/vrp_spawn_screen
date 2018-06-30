@@ -20,8 +20,6 @@
 local Proxy = module("vrp", "lib/Proxy")
 vRP = Proxy.getInterface("vRP")
 
-userlist = {}
-
 AddEventHandler('chatMessage', function(source, name, msg)
     local sm = stringsplit(msg, " ");
     if sm[1] == "/spawn_screen" then
